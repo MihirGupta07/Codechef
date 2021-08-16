@@ -1,0 +1,44 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+#define fast ios_base::sync_with_stdio(false),cin.tie(NULL),cout.tie(NULL);
+
+
+
+void solve(ll n,ll q,vector<pair<ll,ll>> vp){
+
+    ll i=0,res=0,backup=n;
+
+    ll multilcm=1;
+    while(i<q && backup>0){
+        ll x=vp[i].first;
+        ll y=vp[i].second;
+        multilcm=(multilcm*y)/__gcd(multilcm,y);
+        res+=(backup-n/multilcm)*x;
+        backup=n/multilcm;
+
+        i++;
+    }
+
+    cout<<res<<"\n";
+}
+
+
+int main(){
+    fast;
+    ll t;
+    cin>>t;
+
+    while(t--){
+        ll i,n,q;
+        cin>>n>>q;
+        vector <pair<ll,ll>> vp;
+        for(i=0;i<q;i++){
+            ll x,y;
+            cin>>x>>y;
+            vp.push_back({x,y});
+        }
+        sort(vp.begin(), vp.end(), greater<pair<int,int>>());
+        solve(n,q,vp);
+    }
+}
