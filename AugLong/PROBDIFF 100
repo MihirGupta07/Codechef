@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+
+    int total; cin>>total;
+    while(total--)
+    {
+        int a,b,c,d;
+        cin>>a>>b>>c>>d;
+        map<int,int> m;
+        int max = 0;
+        m[a]++;
+        if(m[a]>max)
+        max = m[a];
+        m[b]++;
+        if(m[b]>max)
+        max = m[b];
+        m[c]++;
+        if(m[c]>max)
+        max = m[c];
+        m[d]++;
+        if(m[d]>max)
+        max = m[d];
+        //cout<<max<<' ';
+        if(max == 1 )
+        {
+         cout<<2<<endl;   
+        }
+        if(max == 2 )
+        {
+         cout<<2<<endl;   
+        }
+        if(max == 3 )
+        {
+         cout<<1<<endl;               
+        }
+        if(max == 4 )
+        {
+         cout<<0<<endl;               
+        }
+        
+        
+    }
+}
